@@ -36,7 +36,7 @@ class PersonParser {
   }
 
   addPerson(newPerson) {
-    this._people.unshift('id,first_name,last_name,email,phone,created_at')
+    // this._people.unshift(['id,first_name,last_name,email,phone,created_at'])
     return this._people.push(newPerson)
   }
 
@@ -70,14 +70,18 @@ class PersonParser {
 
 let parser = new PersonParser('people.csv')
 let jokowi = new Person('201','Joko','Widodo','jokowi@mail.com','0897-6543-0987',new Date());
-let trump = new Person('202','Donald','Trump','trump@mail.com','0897-6543-0999','2018-07-16')
+let trump = new Person('202','Donald','Trump','trump@mail.com','0897-6543-0999',new Date());
 
 
 parser.addPerson(jokowi)
+parser.addPerson(trump)
 parser.save()
-// console.log(parser.parse()[199]);
+
+// parser.save()
+
 console.log(parser.parse())
 
+// console.log(parser.parse()[199]);
 // console.log(parser.people.size)
 // console.log(parser.file)
 
