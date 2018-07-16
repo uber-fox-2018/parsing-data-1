@@ -35,6 +35,7 @@ class PersonParser {
 
   parseData(){
     var peopleArr = fs.readFileSync(this.file).toString().split('\n');
+    peopleArr.shift();
 
     for (let i in peopleArr){
       let param = peopleArr[i].split(',');
@@ -50,8 +51,9 @@ class PersonParser {
 
   save(){
     let mainStr = '';
-    let keysStr = Object.keys(this.parseData()[0]);
+    let keysStr = Object.keys(this.people[0]);
     mainStr += keysStr.join(',');
+
     
     for (let i in this.people){
       mainStr += `\n${this.people[i].id},${this.people[i].first_name},${this.people[i].last_name},${this.people[i].email},${this.people[i].phone},${this.people[i].created_at}`
@@ -67,7 +69,7 @@ let Brian = new Person (9999, 'Brian', 'Fury', 'g@mail.com', '081234567890', '20
 
 
 let parser = new PersonParser('people.csv');
-console.log(parser.parseData().length)
+parser.parseData()
 parser.addPerson(Brian)
 console.log(parser.size)
 parser.save()
