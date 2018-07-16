@@ -10,9 +10,8 @@ class Person {
         this._last_name = lastName;
         this._email = email;
         this._phone = phone;
-        this._created_At = createdAt;
+        this._created_At = new Date(createdAt);
       }
-
 }
 
 class PersonParser {
@@ -37,6 +36,7 @@ class PersonParser {
   }
 
   addPerson(newPerson) {
+    this._people.unshift('id,first_name,last_name,email,phone,created_at')
     return this._people.push(newPerson)
   }
 
@@ -45,7 +45,7 @@ class PersonParser {
     let dataArrPeople = dataString.split('\n');
     let resultData=[]
     for(let i =1; i<dataArrPeople.length;i++){
-      let personData = dataArrPeople[i].split(',')
+      let personData = dataArrPeople[i].split(',');
       let personObj = new Person(personData[0],personData[1],personData[2],personData[3],personData[4],personData[5])
       resultData.push(personObj)
     }
@@ -69,10 +69,12 @@ class PersonParser {
 }
 
 let parser = new PersonParser('people.csv')
-let jokowi = new Person('201','Joko','Widodo','jokowi@mail.com','0897-6543-0987','2018-07-16')
+let jokowi = new Person('201','Joko','Widodo','jokowi@mail.com','0897-6543-0987',new Date());
+let trump = new Person('202','Donald','Trump','trump@mail.com','0897-6543-0999','2018-07-16')
 
-// parser.addPerson(jokowi)
-// parser.save()
+
+parser.addPerson(jokowi)
+parser.save()
 // console.log(parser.parse()[199]);
 console.log(parser.parse())
 
