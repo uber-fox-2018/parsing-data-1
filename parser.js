@@ -75,3 +75,5 @@ var file = fs.readFileSync('people.csv','utf-8')
 
 let parser = new PersonParser(file)
 console.log(`There are ${parser.people} people in the file '${parser.file}'.`)
+
+//---
