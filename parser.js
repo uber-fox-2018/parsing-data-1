@@ -48,7 +48,6 @@ class PersonParser {
   save(){
     let result=[this.title];
     for(let person of this.people){
-      console.log(person)
       let box = [];
       for(var key in person){
         box.push(person[key]);
