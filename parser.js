@@ -73,7 +73,8 @@ let jokowi = new Person('201','Joko','Widodo','jokowi@mail.com','0897-6543-0987'
 
 // parser.addPerson(jokowi)
 // parser.save()
-console.log(parser.parse()[199]);
+// console.log(parser.parse()[199]);
+console.log(parser.parse())
 
 // console.log(parser.people.size)
 // console.log(parser.file)
