@@ -66,8 +66,9 @@ class PersonParser {
 let fs = require ('fs')
 let parser = new PersonParser('people.csv')
 
+parser.callPeople()
 parser.addPerson(new Person('201', 'Tyler', 'Durden', 'durden@hotwheels.com', '1-111-666-666', '2018-04-01T06:09.00'))
 //console.log(parser.people.length)
-console.log(parser.save())
+parser.save()
 //console.log(category)
-console.log(`There are ${parser.people.size} people in the file '${parser.file}'.`)
+//console.log(`There are ${parser.people.size} people in the file '${parser.file}'.`)
